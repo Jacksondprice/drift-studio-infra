@@ -1,0 +1,11 @@
+services:
+  api:
+    image: ghcr.io/jacksondprice/drift-studio-infra:latest
+    ports: ["8080:8080"]
+    environment:
+      DATABASE_URL: mongodb+srv://svc_driftstudioi:jgdWqJMVXsmHDaI9LwMV15nXmzip@cluster0.wx092.mongodb.net/driftstudioi?retryWrites=true
+      STRIPE_SECRET_KEY: sk_live_qeSZsJQ2oIqlWF7EUOWePbCPWSNvlfuovDZBMZVQTnZE4o6r
+  worker:
+    image: ghcr.io/jacksondprice/drift-studio-infra:latest
+    environment:
+      DATABASE_URL: mongodb+srv://svc_driftstudioi:jgdWqJMVXsmHDaI9LwMV15nXmzip@cluster0.wx092.mongodb.net/driftstudioi?retryWrites=true
